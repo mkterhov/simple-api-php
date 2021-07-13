@@ -1,0 +1,29 @@
+{
+  "data": [
+    {
+      "elvish": "wordElvish1",
+      "english": "englishTranslation1"
+    },
+    {
+      "elvish": "wordElvish2",
+      "english": "englishTranslation2"
+    },
+    {
+      "elvish": "wordElvish3",
+      "english": "englishTranslation3"
+    },
+    {
+      "elvish": "wordElvish4",
+      "english": "englishTranslation4"
+    },
+    {
+      "elvish": "wordElvish5",
+      "english": "englishTranslation5"
+    },
+    {
+      "elvish": "wordElvish6",
+      "english": "englishTranslation6"
+    }
+  ]
+}
+
