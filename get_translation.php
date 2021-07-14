@@ -4,10 +4,12 @@
 header('Content-Type: application/json');
 
 if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
+    header("HTTP/1.1 405 Method Not Allowed");
     exit(0);
 }
 
 if (!isset($_GET["word"])) {
+    header("HTTP/1.1 404 Not Found");
     echo json_encode(["error" => 'Cant find the word!']);
     exit(0);
 }
@@ -21,7 +23,9 @@ if (!key_exists($word, $data)) {
     exit(0);
 }
 
-error_log('GETTING ITEM ' . $data[$word]);
+error_log('GETTING ITEM ' . sprintf('%s => %s',$word,$data[$word]));
+
+header("HTTP/1.1 200 OK");
 echo json_encode([
     "result" => [
         $word => $data[$word]
