@@ -4,21 +4,22 @@
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit(0);
 }
-if (!isset($_POST["text_input"]) && !isset($_POST["file_input"])) {
-    echo json_encode(["error" => 'Provide inputs!']);
+$fileInput = $_POST["file_input"];
+if (!isset($_POST["text_input"]) && !isset($fileInput)) {
+    echo \json_encode(["error" => 'Provide inputs!']);
     exit(0);
 }
 
 if (isset($_POST['submit'])) {
-    echo json_encode(["error" => 'Error!!']);
+    echo \json_encode(["error" => 'Error!!']);
     exit(0);
 }
 
-$uploadDir = '/home/michael/PhpstormProjects/mkterhov-api/public/images/';
+$uploadDir = '../public/images/';
 
-$fileName = $uploadDir . $_FILES['file_input']['name'];
+$fileName = $uploadDir . $fileInput['name'];
 
-if (move_uploaded_file($_FILES['file_input']['tmp_name'], $fileName)) {
+if (move_uploaded_file($fileInput['tmp_name'], $fileName)) {
     echo "File is valid, and was successfully uploaded.\n";
 } else {
     echo "Possible file upload attack!\n";

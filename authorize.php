@@ -1,3 +1,3 @@
 <?php
-$cookie = 'cookie!';
+$cookie = 'token';
 setcookie('token', $cookie);
