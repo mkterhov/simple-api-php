@@ -1,3 +1,7 @@
 <?php
-$cookie = 'token';
-setcookie('token', $cookie);
+require __DIR__ . '/vendor/autoload.php';
+
+use App\TokenGenerator;
+
+$token = TokenGenerator::generateToken();
+setcookie('token', $token);

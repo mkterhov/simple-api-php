@@ -1,7 +1,11 @@
 <?php
+require __DIR__ . '/vendor/autoload.php';
+
+use App\Config;
+use App\Request;
 
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+if ($_SERVER['REQUEST_METHOD'] !== Request::POST) {
     exit(0);
 }
 $fileInput = $_POST["file_input"];
@@ -15,7 +19,7 @@ if (isset($_POST['submit'])) {
     exit(0);
 }
 
-$uploadDir = '../public/images/';
+$uploadDir = Config::UPLOADS_DIR;
 
 $fileName = $uploadDir . $fileInput['name'];
 

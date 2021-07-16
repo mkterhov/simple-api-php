@@ -1,9 +1,13 @@
 <?php
 
+use App\Request;
+
+require __DIR__ . '/vendor/autoload.php';
+
 \session_start();
 header('Content-Type: application/json');
 
-if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
+if ($_SERVER['REQUEST_METHOD'] !== Request::GET) {
     header("HTTP/1.1 405 Method Not Allowed");
     exit(0);
 }
@@ -14,7 +18,7 @@ if (!isset($_GET["word"])) {
     exit(0);
 }
 $word = htmlspecialchars($_GET["word"]);
-$translationsFile = './public/translations/translations.json';
+$translationsFile = \App\Config::STORAGE_JSON;
 $json = json_decode(file_get_contents($translationsFile), true);
 
 $data = $json['data'];

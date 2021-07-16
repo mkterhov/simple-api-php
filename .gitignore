@@ -3,3 +3,4 @@
 .env
 public/images
 public/transaltions/
+composer.lock
